@@ -1,0 +1,66 @@
+{% load static %}
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Retorno WebPay</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/style.css' %}">
+    <!-- Agrega otros estilos si es necesario -->
+
+    <style>
+        /* Agrega estilos personalizados si es necesario */
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar de Bootstrap -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Tu Tienda</a>
+            <!-- Agrega otros elementos de navegación si es necesario -->
+        </div>
+    </nav>
+
+    <!-- Contenido del retorno WebPay -->
+    <div class="container mt-5 content-container">
+        <h2>¡Transacción Exitosa!</h2>
+        <p>Tu transacción ha sido procesada con éxito.</p>
+        <p>Por favor, ingresa tu correo electrónico para recibir el comprobante de los productos:</p>
+
+        <!-- Muestra la información de retorno, puedes acceder a ella según tu implementación -->
+
+
+        <!-- Formulario para ingresar el correo electrónico -->
+        <form method="post" action="{% url 'generar_pdf_y_enviar_correo' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="email" class="form-label">Correo Electrónico:</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="tucorreo@example.com" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Enviar Comprobante</button>
+        </form>
+
+
+
+
+        <!-- Puedes agregar más detalles o redireccionar al usuario según tu lógica -->
+        <a href="{% url 'inicio' %}">Volver a la página de inicio</a>
+    </div>
+
+    <!-- Agrega otros elementos o secciones según sea necesario -->
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Agrega otros scripts si es necesario -->
+
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+
+pa crear el contenedor en el docker con la imagen de postgres
+
+docker run --name postgresev4 -e POSTGRES_PASSWORD=123456789 -p 5432:5432 -d postgres
+
+
+pa levantar el proyecto en local (aun sin docker)
+
+python manage.py makemigrations
+python manage.py migrate
+
+
+
+python manage.py insert
+
+
+
+python manage.py createsuperuser
+
+python manage.py runserver
+
+python manage.py test
+
+
+
+
+
